@@ -1,49 +1,273 @@
-=====================================================================================================================================
+===================================================================================================
 
 # <span style="color:#922B21; font-weight:bold;">BITACORA</span>
 
-=====================================================================================================================================
+===================================================================================================
 
-                                                                                                               <span style="color:#FFC300; font-weight:bold;">Seguridad en datos </span> 
+                                                                                                <span style="color:#FFC300; font-weight:bold;">Seguridad en datos </span> 
 
-                                                                                                                        seccion 2 
+                                                                                                           seccion 2 
 
-                                                                                                       <span style="color:#05CBC8; font-weight:bold;">Julian Azael Mex Dominguez </span>
+                                                                                             <span style="color:#05CBC8; font-weight:bold;">Julian Azael Mex Dominguez </span>
 
-                                                                                                                         200300640
+                                                                                                           200300640            
 
-                                                                                                          <img title="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUY7tFkkCIvI8bZ5LhclmGJKVZShTpfrrj0f-jbBIVs-0QlxE8" alt="yo" style="zoom:80%;">
+                                                                                      <img title="" src="file:///C:/Users/azael/Downloads/a113584a-33a8-4e14-8a2f-0f9c64a5d4aa.jpg" alt="loading-ag-427" style="zoom:50%;" data-align="inline">
 
-=====================================================================================================================================
+===================================================================================================
 
-## Clase Juevez 19 de Enero 2023
+## Clase Juevez 19 de Enero 2024
 
-=====================================================================================================================================
+===================================================================================================
 
 ### Tarea #995 Investigar conceptos basicos de seguridad (CIA triad, Usability triangle, riesgo, MFA, vulnerabilidad, amenaza, impacto)
 
 * **CIA triad**
     La CIA TRIAD está conformada por las iniciales de los 3 pilares de la seguridad de la información:
   
-  * Integridad
+  * <span style="color:#04D7DA; font-weight:bold;"> Integridad </span> 
+    La integridad se define por confiar que  los datos guardados no cambien 
   
-  * Confidencialidad 
-    Es el
+  * <span style="color:#0039AC; font-weight:bold;">Confidencialidad </span>
+    La capacidad de controlar quien y cuando ve o tiene acceso a los datos 
   
-  * Disponibilidad
+  * <span style="color:#0C73C3; font-weight:bold;">Disponibilidad </span>
+    La capacidad de tener acceso a los datos cuando se desea 
   
   <img title="" src="https://www.nist.gov/sites/default/files/images/2022/09/09/cyber-triad-1.png" alt="" style="zoom:25%;">
   
   * **Usability triangle**
+    Es un triangulo que nos permite medir el uso de una aplicacion en proporcion a las caractrisrticas de Seguridad, Usabilidad y Funcionalidad esto dando peso a algunas a cambio de tener carencias en otras 
   
   * **MFA**
+    Es un metodo más de seguridad para proteger el inicio de secion, para esto aparte de la contraseña se pide algun metodo de comprobacion externo  
   
   * **Vulnerabilidad**
+    Es una debilidad o fallo que los sistemas tienen por diferentes motivos 
+  
+  * **Amenaza**
+    Es la explotacion de una vulnerabilidad  
     
     * **Amenaza**
+      Es la explotacion de una vulnerabilidad 
 
-### isntaslar parrot
+### Instalacion de Parrot con Virtual Box
 
-### a
+![7409ae1b-f893-426b-b957-fd3e92d896d7](file:///C:/Users/azael/Pictures/Typedown/7409ae1b-f893-426b-b957-fd3e92d896d7.png)
+
+![78f6276e-a9ab-47db-872a-3149fcf4bdf1](file:///C:/Users/azael/Pictures/Typedown/78f6276e-a9ab-47db-872a-3149fcf4bdf1.png)
+
+===================================================================================================
+
+## Clase Martes 24 de Enero 2024
+
+===================================================================================================
+
+**Hack vvalue**
+
+    Es la nocion de haker de que es lo que vale la pena para obtener informacion 
+
+**Target of evaluation**
+
+    Es un sistema o producto 
+
+**Exploit**
 
 
+
+**Zero Day attack**
+
+**Vulnerabullty**
+
+**Daisy Chaining**
+
+**Non Repudiation**
+
+**la negacion** 
+
+**IDS y IPS**
+
+ sistema de deteccion de intrusos 
+ Sistema de prevencion de intrusos 
+
+===================================================================================================
+
+## 5 scripts
+
+===================================================================================================
+
+ 1
+
+def sum(number_one,number_two):
+            number_one_int = convert_integer(number_one)
+            number_two_int = convert_integer(number_two)
+              result = number_one_int + number_two_int
+            return result
+    def convert_integer(number_string):
+            converted_integer = int(number_string)
+            return converted_integer
+            answer = sum("1","2")
+
+### 2 TCP Client
+
+import socket
+target_host = "www.google.com"
+target_port = 80
+
+//create a socket object
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+ //connect the client
+
+client.connect((target_host,target_port))
+
+//send some data
+
+client.send("GET / HTTP/1.1\r\nHost: google.com\r\n\r\n")
+
+//receive some data
+
+response = client.recv(4096)
+
+print response
+
+### UDP Client
+
+import socket
+target_host = "127.0.0.1"
+target_port = 80
+
+//create a socket object
+
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+//send some data
+
+client.sendto("AAABBBCCC",(target_host,target_port))
+
+//receive some data
+
+data, addr = client.recvfrom(4096)
+print data
+
+
+
+### TCP Server
+
+import socket
+import threading
+bind_ip = "0.0.0.0"
+bind_port = 9999
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((bind_ip,bind_port))
+server.listen(5)
+print "[*] Listening on %s:%d" % (bind_ip,bind_port)
+
+this is our client-handling thread
+
+def handle_client(client_socket):
+
+        // print out what the client sends
+
+        request = client_socket.recv(1024)
+        print "[*] Received: %s" % request
+
+        // send back a packet
+
+        client_socket.send("ACK!")
+        client_socket.close()
+
+while True:
+        client,addr = server.accept()
+        print "[*] Accepted connection from: %s:%d" % (addr[0],addr[1])
+
+        //spin up our client thread to handle incoming data
+
+client_handler = threading.Thread(target=handle_client,args=(client,))
+y client_handler.start()
+
+### Replacing Netcat
+
+import sys
+import socket
+import getopt
+import threading
+import subprocess
+
+//define some global variables
+
+listen = False
+command = False
+upload = False
+execute = ""
+target = ""
+upload_destination = ""
+port = 0
+
+def usage():
+print "BHP Net Tool"
+print
+print "Usage: bhpnet.py -t target_host -p port"
+print "-l --listen - listen on [host]:[port] for ¬
+incoming connections"
+print "-e --execute=file_to_run - execute the given file upon ¬
+receiving a connection"
+print "-c --command - initialize a command shell"
+print "-u --upload=destination - upon receiving connection upload a ¬
+file and write to [destination]"
+print
+print
+print "Examples: "
+print "bhpnet.py -t 192.168.0.1 -p 5555 -l -c"
+print "bhpnet.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
+print "bhpnet.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc/passwd\""
+print "echo 'ABCDEFGHI' | ./bhpnet.py -t 192.168.11.12 -p 135"
+sys.exit(0)
+
+def main():
+global listen
+global port
+global execute
+global command
+global upload_destination
+global target
+if not len(sys.argv[1:]):
+usage()
+ //read the commandline options
+try:
+opts, args = getopt.getopt(sys.argv[1:],"hle:t:p:cu:", ¬
+["help","listen","execute","target","port","command","upload"])
+except getopt.GetoptError as err:
+print str(err)
+usage()
+for o,a in opts:
+if o in ("-h","--help"):
+usage()
+elif o in ("-l","--listen"):
+listen = True
+elif o in ("-e", "--execute"):
+execute = a
+elif o in ("-c", "--commandshell"):
+command = True
+elif o in ("-u", "--upload"):
+upload_destination = a
+elif o in ("-t", "--target"):
+target = a
+elif o in ("-p", "--port"):
+port = int(a)
+else:
+assert False,"Unhandled Option"
+//are we going to listen or just send data from stdin?
+w if not listen and len(target) and port > 0:
+//read in the buffer from the commandline
+//this will block, so send CTRL-D if not sending input
+//to stdin
+buffer = sys.stdin.read()
+//send data off
+client_sender(buffer)
+//we are going to listen and potentially
+//upload things, execute commands, and drop a shell back
+//depending on our command line options above
+if listen:
+x server_loop()
+main()
